@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dr. Márcio Morais - Advogados: Especialistas em Planejamento Sucessório, Consultoria Financeira e Advocacia Cível/Trabalhista/Tributária. Proteja seu legado familiar.">
-    <meta name="keywords" content="advogados, planejamento sucessório, advocacia cível, trabalhista, tributária, São Paulo">
-    <title>Dr. Márcio Morais - Advogados</title>
+    <meta name="description" content="Holding Patrimonial e Familiar: Especialistas em Planejamento Sucessório, Consultoria Financeira e Advocacia Cível/Trabalhista/Tributária. Proteja seu legado familiar.">
+    <meta name="keywords" content="holding patrimonial, holding familiar, planejamento sucessório, advocacia cível, trabalhista, tributária, São Paulo">
+    <title>Holding Patrimonial e Familiar | Proteja Seu Legado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,10 +21,34 @@
             display: flex;
             align-items: center;
             gap: 2rem;
+            position: relative;
+            z-index: 10;
         }
         .logo {
-            font-size: 1.5rem;
+            max-height: 50px;
+            width: auto;
+        }
+        .sound-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
             font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .sound-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .sound-toggle.muted::before {
+            content: "Ligue o som";
+        }
+        .sound-toggle.unmuted::before {
+            content: "Desligue o som";
         }
         nav {
             flex: 1;
@@ -44,30 +69,56 @@
             color: #aa8849;
         }
         .hero {
-            background-color: #0d1c33;
-            color: white;
-            padding: 4rem 1rem;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
+        }
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 80%;
         }
         .hero h1 span {
             color: #aa8849;
         }
         .cta-button {
-            background-color: #aa8849;
+            background: linear-gradient(135deg, #aa8849, #8a6a39);
             color: #003366;
             border: none;
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(170, 136, 73, 0.3);
         }
         .cta-button:hover {
-            background-color: #8a6a39;
+            background: linear-gradient(135deg, #8a6a39, #6d5430);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(170, 136, 73, 0.4);
         }
         .cta-button:active {
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
             transform: scale(0.98);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
         }
         .about {
             background-color: #ffffff;
@@ -83,6 +134,11 @@
         .services h2 {
             color: white;
         }
+        .services p.intro {
+            max-width: 800px;
+            margin: 1rem auto 2rem;
+            font-size: 1.1em;
+        }
         .services-grid {
             display: flex;
             flex-wrap: wrap;
@@ -97,13 +153,25 @@
             flex: 1 1 300px;
             max-width: 300px;
         }
-        .testimonials {
+        .quem-fez-holding {
             background-color: #ffffff;
             padding: 2rem 1rem;
             text-align: center;
         }
-        blockquote {
-            margin: 1rem 0;
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .testimonial-card {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 10px;
+            flex: 1 1 300px;
+            max-width: 300px;
+            border-left: 5px solid #aa8849;
             font-style: italic;
         }
         footer {
@@ -112,27 +180,105 @@
             padding: 2rem 1rem;
             text-align: center;
         }
-        footer .contacts {
+        .logo-footer {
+            max-width: 200px;
             margin-bottom: 1rem;
+        }
+        .contacts {
+            margin-bottom: 1rem;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        .social-icons a:hover {
+            color: #aa8849;
+            background: rgba(170,136,73,0.2);
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        .contact-form h3 {
+            margin-top: 0;
+            color: white;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        .contact-form button {
+            background: linear-gradient(135deg, #aa8849, #8a6a39);
+            color: #003366;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            box-shadow: 0 4px 8px rgba(170, 136, 73, 0.3);
+        }
+        .contact-form button:hover {
+            background: linear-gradient(135deg, #8a6a39, #6d5430);
+            box-shadow: 0 6px 12px rgba(170, 136, 73, 0.4);
         }
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 gap: 1rem;
             }
+            .sound-toggle {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+            }
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
             }
-            .services-grid {
+            .services-grid, .testimonials-grid {
                 flex-direction: column;
+            }
+            .hero-content {
+                padding: 1rem;
+                max-width: 95%;
+            }
+            .contact-form {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Dr. Márcio Morais - Advogados</div>
+        <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765411330/logo_apenas_wavyqh.png" alt="Logo" class="logo">
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -142,48 +288,98 @@
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
+        <button class="sound-toggle muted" onclick="toggleSound()"></button>
     </header>
     <section class="hero">
-        <h1>Proteja o <span>Legado Familiar</span> com Planejamento Sucessório</h1>
-        <p>Garantimos a segurança jurídica e financeira da sua família através de estratégias personalizadas de planejamento sucessório, consultoria financeira e advocacia especializada.</p>
-        <button class="cta-button">Agende uma Consulta Gratuita Agora</button>
+        <video id="heroVideo" autoplay muted loop playsinline>
+            <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765402934/0_Family_Children_1280x720_1_cvigxu.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <div class="hero-content">
+            <h1>Proteja o Legado Familiar com a Criação de uma Holding</h1>
+            <p>Garantimos a segurança jurídica e financeira da sua família através de estratégias personalizadas de planejamento sucessório, consultoria financeira e advocacia especializada.</p>
+            <a href="#contato" class="cta-button">Agende uma Consulta Gratuita Agora</a>
+        </div>
     </section>
     <section class="about" id="sobre">
         <h2>Sobre Nós</h2>
         <p>Com anos de experiência em direito familiar e sucessório, o Dr. Márcio Morais oferece soluções jurídicas eficazes para proteger seu patrimônio e garantir a continuidade do seu legado.</p>
     </section>
     <section class="services" id="servicos">
-        <h2>Nossos Serviços</h2>
+        <h2>Soluções Completas para Holding Familiar</h2>
+        <p class="intro">Oferecemos serviços especializados em estruturação de holdings familiares, proteção patrimonial e sucessão empresarial, sempre com foco na segurança jurídica e otimização tributária para nossos clientes.</p>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Planejamento Sucessório</h3>
-                <p>Elaboração de testamentos, doações e estruturas para minimizar impostos e conflitos familiares.</p>
+                <h3>Holdings Familiares</h3>
+                <p>Estruturação completa de holdings para proteção patrimonial e sucessão empresarial segura.</p>
             </div>
             <div class="service-card">
-                <h3>Consultoria Financeira e Mentoria via Método PAC</h3>
-                <p>Orientação financeira personalizada com foco em crescimento patrimonial sustentável.</p>
+                <h3>Proteção Patrimonial</h3>
+                <p>Blindagem jurídica dos seus bens contra riscos empresariais e credores.</p>
             </div>
             <div class="service-card">
-                <h3>Holding Familiar</h3>
-                <p>Criação de estruturas societárias para proteção e gestão eficiente do patrimônio familiar.</p>
+                <h3>Otimização Tributária</h3>
+                <p>Redução legal de até 34% na carga tributária através de planejamento estratégico.</p>
             </div>
             <div class="service-card">
-                <h3>Advocacia Cível/Trabalhista/Tributária</h3>
-                <p>Assessoria jurídica completa em questões cíveis, trabalhistas e tributárias.</p>
+                <h3>Sucessão Empresarial</h3>
+                <p>Planejamento sucessório estruturado para garantir continuidade dos negócios familiares.</p>
+            </div>
+            <div class="service-card">
+                <h3>Contratos Especializados</h3>
+                <p>Elaboração de contratos empresariais, franquias e acordos societários.</p>
             </div>
         </div>
     </section>
-    <section class="testimonials" id="depoimentos">
-        <h2>Depoimentos</h2>
-        <blockquote>"O Dr. Márcio nos ajudou a proteger nosso patrimônio familiar de forma eficiente e segura." - Cliente Satisfeito</blockquote>
-        <blockquote>"Excelente consultoria, recomendo para todos que buscam planejamento sucessório." - Família Agradecida</blockquote>
+    <section class="quem-fez-holding" id="depoimentos">
+        <h2>Quem já fez holding</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"O Dr. Márcio nos ajudou a proteger nosso patrimônio familiar de forma eficiente e segura."</p>
+                <cite>- Cliente Satisfeito</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"Excelente consultoria, recomendo para todos que buscam planejamento sucessório."</p>
+                <cite>- Família Agradecida</cite>
+            </div>
+        </div>
     </section>
-    <footer>
+    <footer id="contato">
+        <img src="https://res.cloudinary.com/dtgcobo29/image/upload/v1765411342/logocompleta_transp_w7xlok.png" alt="Logo Completa" class="logo-footer">
         <div class="contacts">
             <p>OAB/SP 12345 | contato@marciomoraisadvogados.com | (11) 98590-5271</p>
-            <p>www.marciomoraisadvogados.com | Instagram @marciomoraisadvogados</p>
+            <p>www.marciomoraisadvogados.com</p>
         </div>
-        <button class="cta-button">Entre em Contato Hoje</button>
+        <div class="social-icons">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <form class="contact-form" action="mailto:contato@marciomoraisadvogados.com" method="post" enctype="text/plain">
+            <h3>Envie uma Mensagem</h3>
+            <input type="text" name="nome" placeholder="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu Email" required>
+            <input type="tel" name="telefone" placeholder="Seu Telefone (opcional)">
+            <textarea name="mensagem" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+        <a href="#" class="cta-button">Entre em Contato Hoje</a>
     </footer>
+
+    <script>
+        function toggleSound() {
+            const video = document.getElementById('heroVideo');
+            const button = document.querySelector('.sound-toggle');
+            if (video.muted) {
+                video.muted = false;
+                button.classList.remove('muted');
+                button.classList.add('unmuted');
+            } else {
+                video.muted = true;
+                button.classList.remove('unmuted');
+                button.classList.add('muted');
+            }
+        }
+    </script>
 </body>
 </html>
