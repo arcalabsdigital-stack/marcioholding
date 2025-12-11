@@ -3,251 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Márcio Morais - Especialista em Holdings e Planejamento Patrimonial</title>
-    <meta name="description" content="Advogado especialista em criação de holdings, planejamento patrimonial e consultoria fiscal. Proteja seu legado com expertise em direito tributário e sucessório.">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="Dr. Márcio Morais - Advogados: Especialistas em Planejamento Sucessório, Consultoria Financeira e Advocacia Cível/Trabalhista/Tributária. Proteja seu legado familiar.">
+    <meta name="keywords" content="advogados, planejamento sucessório, advocacia cível, trabalhista, tributária, São Paulo">
+    <title>Dr. Márcio Morais - Advogados</title>
     <style>
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            color: #f0f0f0; 
-            background-color: #000; 
-            background: linear-gradient(135deg, #000 0%, #111 100%);
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
         }
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
-        .blue-text { color: #4a90e2; }
-        header { 
-            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%); 
-            color: #fff; 
-            padding: 20px; 
-            text-align: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
         }
-        .hero { 
-            position: relative; 
-            height: 80vh; 
-            overflow: hidden; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            color: #fff; 
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
-        .hero video { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            z-index: -1; 
+        nav {
+            flex: 1;
         }
-        .hero-content { 
-            z-index: 1; 
-            background: rgba(0,0,0,0.5); 
-            padding: 40px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            max-width: 70%;
-            backdrop-filter: blur(10px);
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
         }
-        .hero h1 { 
-            font-size: 3em; 
-            margin: 0; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
         }
-        .hero p { 
-            font-size: 1.4em; 
-            margin: 10px 0 20px; 
+        nav a:hover, nav a:active {
+            color: #aa8849;
         }
-        .hero a { 
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%); 
-            color: #fff; 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            border-radius: 25px; 
-            font-weight: bold; 
-            transition: all 0.3s ease;
+        .hero {
+            background-color: #0d1c33;
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
         }
-        .hero a:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(74,144,226,0.4); }
-        .section { 
-            padding: 60px 20px; 
-            background: linear-gradient(135deg, #111 0%, #222 100%); 
-            text-align: center; 
+        .hero h1 span {
+            color: #aa8849;
         }
-        .section-alt { background: linear-gradient(135deg, #222 0%, #333 100%); }
-        .section h2 { 
-            color: #fff; 
-            font-size: 2.5em; 
-            margin-bottom: 40px;
+        .cta-button {
+            background-color: #aa8849;
+            color: #003366;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        .services-grid { display: flex; justify-content: space-around; flex-wrap: wrap; }
-        .service-item { 
-            width: 30%; 
-            margin: 15px; 
-            background: rgba(255,255,255,0.05); 
-            padding: 20px; 
-            border-radius: 10px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
+        .cta-button:hover {
+            background-color: #8a6a39;
         }
-        .service-item:hover { transform: translateY(-5px); }
-        .service-item i { font-size: 3em; color: #4a90e2; margin-bottom: 10px; }
-        .service-item h3 { color: #fff; }
-        .service-item p { color: #ccc; }
-        .testimonial { 
-            margin: 20px auto; 
-            padding: 25px; 
-            background: rgba(255,255,255,0.1); 
-            border-radius: 15px; 
-            max-width: 600px;
-            color: #f0f0f0;
-            backdrop-filter: blur(5px);
+        .cta-button:active {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+            transform: scale(0.98);
         }
-        .cta { 
-            padding: 60px 20px; 
-            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); 
-            text-align: center; 
+        .about {
+            background-color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
         }
-        .cta form { max-width: 400px; margin: 20px auto; }
-        .cta input, .cta button { 
-            width: 100%; 
-            margin: 10px 0; 
-            padding: 15px; 
-            border-radius: 10px; 
-            font-size: 1em;
+        .services {
+            background-color: #0d1c33;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
         }
-        .cta input { background: rgba(255,255,255,0.1); border: 1px solid #4a90e2; color: #fff; }
-        .cta input::placeholder { color: #ccc; }
-        .cta button { background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%); border: none; color: #fff; cursor: pointer; }
-        .cta button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(74,144,226,0.4); }
-        footer { 
-            background: #111; 
-            color: #ccc; 
-            padding: 20px; 
-            text-align: center; 
-            font-size: 0.9em;
+        .services h2 {
+            color: white;
         }
-        .social-links a { color: #4a90e2; margin: 0 10px; text-decoration: none; font-size: 1.2em; }
-        .social-links a:hover { color: #fff; }
-        .sound-toggle { 
-            position: fixed; 
-            top: 20px; 
-            right: 20px; 
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%); 
-            color: #fff; 
-            border: none; 
-            padding: 10px; 
-            border-radius: 50%; 
-            cursor: pointer; 
-            z-index: 1000;
-            transition: all 0.3s ease;
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
         }
-        .sound-toggle:hover { transform: scale(1.1); }
-        @media (max-width: 768px) { 
-            .service-item { width: 100%; margin: 10px 0; } 
-            .hero h1 { font-size: 2.5em; } 
-            .hero-content { padding: 20px; max-width: 90%; }
+        .service-card {
+            background-color: #192e52;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            flex: 1 1 300px;
+            max-width: 300px;
+        }
+        .testimonials {
+            background-color: #ffffff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        blockquote {
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        footer .contacts {
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .services-grid {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <button class="sound-toggle" onclick="toggleSound()">🔊 PVA Ativado</button>
     <header>
-        <h1>Dr. Márcio Morais</h1>
-        <p>Advogado Especialista em Holdings e Proteção Patrimonial</p>
+        <div class="logo">Dr. Márcio Morais - Advogados</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
     </header>
     <section class="hero">
-        <video id="hero-video" autoplay muted loop playsinline>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"> <!-- Placeholder: Substitua por vídeo de estruturas empresariais se formando com animação corporativa -->
-            Seu navegador não suporta vídeo.
-        </video>
-        <div class="hero-content">
-            <h1>Construa Sua Holding com <span class="blue-text">Tecnologia PVA</span></h1>
-            <p>Proteja seu patrimônio familiar ou empresarial com planejamento estratégico e imersão visual que inspira confiança. +20 anos de expertise em direito tributário e sucessório.</p>
-            <a href="#cta">Agendar Consulta Gratuita</a>
-        </div>
+        <h1>Proteja o <span>Legado Familiar</span> com Planejamento Sucessório</h1>
+        <p>Garantimos a segurança jurídica e financeira da sua família através de estratégias personalizadas de planejamento sucessório, consultoria financeira e advocacia especializada.</p>
+        <button class="cta-button">Agende uma Consulta Gratuita Agora</button>
     </section>
-    <section class="section">
-        <h2>Sobre Mim</h2>
-        <p>Como advogado atuante em direito cível, trabalhista e tributário, com convênio OAB/Defensoria Pública de São Paulo, ajudo empresários e famílias a estruturarem holdings eficientes para otimização fiscal, proteção de bens e sucessão patrimonial. Utilizando <span class="blue-text">Tecnologia PVA</span>, meu site oferece uma experiência imersiva que reflete a solidez das soluções que entrego.</p>
+    <section class="about" id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Com anos de experiência em direito familiar e sucessório, o Dr. Márcio Morais oferece soluções jurídicas eficazes para proteger seu patrimônio e garantir a continuidade do seu legado.</p>
     </section>
-    <section class="section-alt">
-        <h2>Serviços Oferecidos</h2>
+    <section class="services" id="servicos">
+        <h2>Nossos Serviços</h2>
         <div class="services-grid">
-            <div class="service-item">
-                <i class="fas fa-building"></i>
-                <h3>Criação de Holdings</h3>
-                <p>Estruturação de sociedades holding para otimização tributária e gestão familiar/empresarial.</p>
+            <div class="service-card">
+                <h3>Planejamento Sucessório</h3>
+                <p>Elaboração de testamentos, doações e estruturas para minimizar impostos e conflitos familiares.</p>
             </div>
-            <div class="service-item">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Planejamento Patrimonial</h3>
-                <p>Proteção de ativos contra riscos, com foco em sucessão e herança segura.</p>
+            <div class="service-card">
+                <h3>Consultoria Financeira e Mentoria via Método PAC</h3>
+                <p>Orientação financeira personalizada com foco em crescimento patrimonial sustentável.</p>
             </div>
-            <div class="service-item">
-                <i class="fas fa-chart-line"></i>
-                <h3>Consultoria Fiscal</h3>
-                <p>Análise e planejamento tributário para holdings, reduzindo custos legais e fiscais.</p>
+            <div class="service-card">
+                <h3>Holding Familiar</h3>
+                <p>Criação de estruturas societárias para proteção e gestão eficiente do patrimônio familiar.</p>
             </div>
-            <div class="service-item">
-                <i class="fas fa-file-contract"></i>
-                <h3>Contratos e Acordos</h3>
-                <p>Elaboração de estatutos, pactos de sócios e documentos para governança de holdings.</p>
+            <div class="service-card">
+                <h3>Advocacia Cível/Trabalhista/Tributária</h3>
+                <p>Assessoria jurídica completa em questões cíveis, trabalhistas e tributárias.</p>
             </div>
         </div>
     </section>
-    <section class="section">
-        <h2>Cases de Sucesso</h2>
-        <div class="testimonial">
-            <p>"Graças à holding estruturada pelo Dr. Morais, protegemos nosso patrimônio familiar e otimizamos impostos em 40%. Recomendo!"</p>
-            <cite>- Família Empreendedora, São Paulo</cite>
-        </div>
-        <div class="testimonial">
-            <p>"Profissionalismo impecável na criação da nossa holding empresarial. Resultados além das expectativas."</p>
-            <cite>- Diretor de Empresa, Joinville-SC</cite>
-        </div>
-    </section>
-    <section id="cta" class="cta">
-        <h2>Pronto para Proteger Seu Legado?</h2>
-        <p>Agende uma consulta inicial gratuita e descubra como o PVA pode elevar sua experiência jurídica.</p>
-        <form action="https://wa.me/5511985905271?text=Olá, Dr. Morais! Quero agendar uma consulta sobre holdings." method="get" target="_blank">
-            <input type="text" placeholder="Seu Nome" required>
-            <input type="tel" placeholder="Seu Telefone" required>
-            <button type="submit">Agendar via WhatsApp</button>
-        </form>
+    <section class="testimonials" id="depoimentos">
+        <h2>Depoimentos</h2>
+        <blockquote>"O Dr. Márcio nos ajudou a proteger nosso patrimônio familiar de forma eficiente e segura." - Cliente Satisfeito</blockquote>
+        <blockquote>"Excelente consultoria, recomendo para todos que buscam planejamento sucessório." - Família Agradecida</blockquote>
     </section>
     <footer>
-        <p>Dr. Márcio Morais - Advogado | São Paulo-SP / Joinville-SC | OAB/SP 12345 | <a href="mailto:contato@marciomoraisadvogados.com">contato@marciomoraisadvogados.com</a> | (11) 98590-5271</p>
-        <p><a href="https://www.marciomoraisadvogados.com" target="_blank">www.marciomoraisadvogados.com</a> | <a href="https://instagram.com/marciomoraisadvogados" class="social-links" target="_blank"><i class="fab fa-instagram"></i> @marciomoraisadvogados</a></p>
-        <p>Site desenvolvido com <span class="blue-text">Tecnologia PVA</span> pela Arca Digital</p>
+        <div class="contacts">
+            <p>OAB/SP 12345 | contato@marciomoraisadvogados.com | (11) 98590-5271</p>
+            <p>www.marciomoraisadvogados.com | Instagram @marciomoraisadvogados</p>
+        </div>
+        <button class="cta-button">Entre em Contato Hoje</button>
     </footer>
-    <script>
-        function toggleSound() {
-            const video = document.getElementById('hero-video');
-            const button = event.target;
-            if (video.muted) {
-                video.muted = false;
-                button.textContent = '🔇 PVA Silenciado';
-            } else {
-                video.muted = true;
-                button.textContent = '🔊 PVA Ativado';
-            }
-        }
-        // Lazy loading para performance
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    observer.unobserve(img);
-                }
-            });
-        });
-        document.querySelectorAll('img').forEach(img => observer.observe(img));
-    </script>
 </body>
 </html>
